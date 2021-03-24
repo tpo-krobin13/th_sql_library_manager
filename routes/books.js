@@ -26,7 +26,7 @@ router.get('/new', asyncHandler(
 /* POST new book added to db */
 router.post('/new', asyncHandler(
   async function(req, res, next) {
-  const book = await Book.build(req.body);
+  let book = await Book.build(req.body);
   try{ 
     book = await book.save();
     res.redirect(`/books`);
